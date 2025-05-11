@@ -420,7 +420,6 @@ input[type="text"]:focus {
   <!-- SNSメニュー -->
   <div id="socialMenu" style="display: none; margin-top: 1em;">
     <button class="cute-button" onclick="shareOnTwitter()">X（Twitter）でシェア</button>
-    <button class="cute-button" onclick="shareOnLINE()">LINEでシェア</button>
     <button class="cute-button" onclick="nativeShare()">共有</button>
 
   </div>
@@ -553,14 +552,6 @@ input[type="text"]:focus {
     window.open(twitterUrl, "_blank");
   }
 
-  // LINE共有
-  function shareOnLINE() {
-  const result = document.getElementById("resultArea").innerText.trim();
-  const text = encodeURIComponent(result + "\n診断してみてね！");
-  const url = encodeURIComponent(window.location.href);
-  const lineUrl = `https://social-plugins.line.me/lineit/share?url=${url}&text=${text}`;
-  window.open(lineUrl, "_blank");
-}
   // ネイティブ共有
   function nativeShare() {
     const result = document.getElementById("resultArea").innerText.trim();
