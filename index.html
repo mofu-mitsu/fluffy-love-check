@@ -384,9 +384,12 @@ input[type="text"]:focus {
     <label for="relationship">ふたりの関係性</label>
     <select id="relationship" name="relationship">
       <option value="友達">友達</option>
+      <option value="仲良し">仲良し</option>
       <option value="恋人未満">恋人未満</option>
       <option value="恋人">恋人</option>
       <option value="親友">親友</option>
+      <option value="夫婦">夫婦</option>
+      <option value="親子">親子</option>
       <option value="推し×自分">推し×自分</option>
       <option value="宿敵だけど気になる相手">宿敵だけど気になる相手</option>
       <option value="幼なじみ">幼なじみ</option>
@@ -552,11 +555,12 @@ input[type="text"]:focus {
 
   // LINE共有
   function shareOnLINE() {
-    const result = document.getElementById("resultArea").innerText.trim();
-    const text = encodeURIComponent(result + "\n診断してみてね！\n" + window.location.href);
-    const lineUrl = `https://social-plugins.line.me/lineit/share?text=${text}`;
-    window.open(lineUrl, "_blank");
-  }
+  const result = document.getElementById("resultArea").innerText.trim();
+  const text = encodeURIComponent(result + "\n診断してみてね！");
+  const url = encodeURIComponent(window.location.href);
+  const lineUrl = `https://social-plugins.line.me/lineit/share?url=${url}&text=${text}`;
+  window.open(lineUrl, "_blank");
+}
   // ネイティブ共有
   function nativeShare() {
     const result = document.getElementById("resultArea").innerText.trim();
